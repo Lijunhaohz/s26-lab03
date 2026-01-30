@@ -40,10 +40,15 @@ public class InheritanceSortedIntList extends SortedIntList {
     }
 
     /**
-     * No need to override addAll since add() is already overridden.
-     * Calling the superclass's addAll will use the overridden add() method.
-     * And thus, totalAdded will be updated correctly.
+     * The overridden addAll method is the same as the parent class's method,
+     * so we simply call super.addAll(list) without modifying totalAdded here.
+     * The super.addAll method will call super.add for each element, which
+     * will correctly increment totalAdded for each addition.
      */
+    @Override
+    public boolean addAll(IntegerList list) {
+        return super.addAll(list);
+    }
     
     /**
      * Returns the total number of elements that have been added to the list
